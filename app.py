@@ -231,7 +231,6 @@ elif st.session_state.adim == 3:
                 "🌳 Açık havada oturup sohbet ederiz", 
                 "🍦 Dondurma yeriz", 
                 "🎬 Filme gireriz",
-                "🗣️ Bol bol sohbet ederiz"
             ]
         )
         
