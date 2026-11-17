@@ -246,9 +246,6 @@ elif st.session_state.adim == 3:
             st.session_state.adim = 4
             
             # --- TELEGRAM BİLDİRİM GÖNDERME KISMI ---
-            TELEGRAM_BOT_TOKEN = "8964461758:AAGGOpesPBSuNMWJ49ZGEN7Mb1GfYxopA7w" 
-            TELEGRAM_CHAT_ID = "1136831792"
-            
             ekstra_metin = ", ".join(ekstralar) if ekstralar else "Seçilmedi"
             not_metin = ekstra_not if ekstra_not else "Yazılmadı"
             
@@ -261,6 +258,9 @@ elif st.session_state.adim == 3:
 💌 Not: {not_metin}"""
             
             try:
+                # Anahtarlar kodda değil, Streamlit gizli ayarlarında (.streamlit/secrets.toml / Cloud "Secrets")
+                TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_BOT_TOKEN"]
+                TELEGRAM_CHAT_ID = st.secrets["TELEGRAM_CHAT_ID"]
                 url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
                 payload = {"chat_id": TELEGRAM_CHAT_ID, "text": mesaj}
                 requests.post(url, data=payload)
